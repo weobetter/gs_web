@@ -1,14 +1,4 @@
-export default [{
-        path: '/',
-        redirect: '/login'
-    },
-    {
-        path: '/login',
-        name: 'login',
-        meta: { title: "登录" },
-        component: () =>
-            import ('@/views/common/Login.vue')
-    },
+export default [
     {
         path: '/404',
         name: '404',
@@ -24,17 +14,17 @@ export default [{
             import ('@/views/common/500.vue')
     },
     {
+        path: '/',
+        name: 'main',
+        meta: { title: "首页" },
+        component: () =>
+            import ('@/views/Home.vue'),
+    },
+    {
         path: '/main',
         name: 'main',
         meta: { title: "首页" },
         component: () =>
-            import ('@/layout/Layout.vue'),
-        children: [{
-            path: "/main",
-            name: "main",
-            meta: { title: "首页" },
-            component: () =>
-                import ('@/views/common/Main.vue')
-        }]
+            import ('@/views/Home.vue'),
     }
 ]

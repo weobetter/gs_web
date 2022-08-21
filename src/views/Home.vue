@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        
+        1
     </div>
 </template>
 <script setup>
@@ -13,7 +13,6 @@ onMounted(() => {
 });
 
 
-};
 </script>
 <style lang="scss" scoped>
 .home {

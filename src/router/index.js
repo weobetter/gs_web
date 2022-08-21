@@ -2,25 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import Layout from '@/layout/Layout.vue'
-import { menuList } from '@/api/systemApi'
-import { useMenuStore } from '@/store/settings'
-import { setLeftMenu } from '@/utils/menu';
 
 // 路由按模块分类
 import common from './common'
-import risk from './risk'
-import futuresTrade from './futuresTrade'
-import internationalTrade from './internationalTrade'
-import mainData from './mainData'
-import msgCenter from './msgCenter'
+
 
 export const menus = [
-    ...risk,
-    ...futuresTrade,
-    ...internationalTrade,
-    ...mainData,
-    ...msgCenter
+    
 ]
 
 // createRouter 创建路由实例
@@ -48,18 +36,9 @@ router.beforeEach(async(to, from, next) => {
     //     return next({ path: "/login" });
     // };
 
-    // 设置头部
-    if (to.meta.title) {
-        document.title = to.meta.title
-    } else {
-        document.title = "tansci"
-    }
-
-   setLeftMenu();
     // if (sessionStorage.getItem('token') && flag) {
     //     const menuStore = useMenuStore();
     //     await menuList({ types: '1,2,3', status: 1 }).then((res) => {
-    //         let result = routerFilter(res.result)
     //         result.push({ path: '/:pathMatch(.*)*', redirect: '/404' })
     //         result.forEach((item) => {
     //             router.addRoute(item)
@@ -84,46 +63,4 @@ router.afterEach(() => {
 // 格式化路由
 let modules =
     import.meta.glob('../views/**/**/*.vue')
-export function routerFilter(data) {
-    data.forEach((item) => {
-        let flag = false;
-        if (item.parentId == '0') {
-            item.path = '/' + item.name;
-            item.name = item.name;
-            item.chineseName = item.chineseName;
-            item.englishName = item.englishName;
-            item.icon = item.icon;
-            item.meta = { title: item.chineseName };
-            item.redirect = item.name;
-            item.component = Layout;
-            if (!item.children || item.children.length == 0) {
-                item.children = [{
-                    path: '/' + item.name,
-                    name: item.name,
-                    icon: item.icon,
-                    chineseName: item.chineseName,
-                    englishName: item.englishName,
-                    meta: { title: item.chineseName },
-                    // component: () => import('../views' + item.url + '.vue')
-                    component: modules['../views' + item.url + '.vue']
-                }];
-                flag = true;
-            }
-        } else {
-            item.path = '/' + item.name;
-            item.name = item.name;
-            item.chineseName = item.chineseName;
-            item.englishName = item.englishName;
-            item.icon = item.icon;
-            item.meta = { title: item.chineseName };
-            // item.component = () => import('../views' + item.url + '.vue');
-            item.component = modules['../views' + item.url + '.vue'];
-        }
-        if (item.children && item.children.length && !flag) {
-            routerFilter(item.children)
-        }
-    })
-    return data;
-}
-
 export default router
