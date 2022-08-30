@@ -50,7 +50,40 @@
             <p class="mb-6 text-4xl">>权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）</p>
             <p class="mb-6 text-4xl">>权益二：Gameshow数藏Top3持有者，其形象会随机出现在未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画</p>
             <p class="mb-6 text-4xl">>权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow Pass空投，并享受Gameshow后续项目的收益分红</p>
-            <p class="mb-6 text-4xl">>权益三：线下活动受邀资格+线下周边领取</p>
+            <p class="mb-6 text-4xl">>权益四：线下活动受邀资格+线下周边领取</p>
+        </div>
+    </section>
+
+    <section class="main-setion section-7 main-padding flex flex-col justify-center items-center">
+        <p class="text-7xl mb-20 text-center title" :style="'background-image: url(' + roadMapBg + ');'">
+            Road<span style="color: rgb(251,79,243)">Map</span>
+        </p>
+        <div class="desc flex items-center justify-center">
+            <div class="left">2022</div>
+            <div class="right">
+                <p class="month" >9月</p>
+                <p class="desc">项目启动，前期预热（数字藏品发型，团队PV公布）</p>
+                <p class="month">10月</p>
+                <p class="desc">海外Game Show Pass卡空头开始，并确定出境任务</p>
+                <p class="month">11月</p>
+                <p class="desc">公布Game Show PV、系列片量产开始</p>
+                <p class="month">12月</p>
+                <p class="desc">与蓝筹NFT项目方+影视界明星举办线下AMA，交流项目</p>
+            </div>
+        </div>
+        <div class="desc flex items-center justify-center">
+            <div class="left">2023</div>
+            <div class="right">
+                <p class="month">2月</p>
+                <p class="desc">公布第一季部分剧情，引导用户参与投票</p>
+                <p class="month">3月</p>
+                <p class="desc">建议GameShow线下主题公园</p>
+                <p class="desc">前6集准备完毕，公开第一集，月更/半月更</p>
+                <p class="month">5月</p>
+                <p class="desc">完成第一季动画制作</p>
+                <p class="month">8月</p>
+                <p class="desc">第一季12集播放结束，第二季连播</p>
+            </div>
         </div>
     </section>
 </template>
@@ -59,6 +92,7 @@ import SectionBg1 from '@/assets/section_bg_1.png';
 import SectionBg3 from '@/assets/section_bg_3.png';
 import SectionBg4 from '@/assets/section_bg_4.jpg';
 import SectionBg5 from '@/assets/section_bg_5.jpg';
+import RoadMapBg from '@/assets/road_map_line.png';
 import Banner from '@/assets/game_show_banner.jpg';
 import { onMounted, reactive, toRefs, ref } from 'vue';
 
@@ -66,6 +100,7 @@ const bg1 = ref(SectionBg1);
 const bg3 = ref(SectionBg3);
 const bg4 = ref(SectionBg4);
 const bg5 = ref(SectionBg5);
+const roadMapBg = ref(RoadMapBg);
 const banner = ref(Banner);
 const menus = ref([{
     name: '故事梗概',
@@ -98,6 +133,37 @@ onMounted(() => {});
     box-shadow: 0px 0px 10px 10px  #000;
 }
 
+.section-7 {
+    color: white;
+    .title {
+        width: 400px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .desc {
+        width: 80%;
+        margin: 20px 0;
+        .left {
+            font-size: 80px;
+            margin-right: 40px;
+            flex-shrink: 0;
+        }
+        .right {
+            padding: 35px 40px;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-size:25px;
+            flex-grow: 1;
+            p {
+                margin: 5px 0;
+            }
+            .month {
+                color: var(--theme);
+            }
+        }
+    }
+}
 .section-6 {
     color: white;
     .desc {
