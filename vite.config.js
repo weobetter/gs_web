@@ -21,22 +21,22 @@ export default defineConfig({
     },
 
     // 反向代理
-    server: {
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-        },
-        disableHostCheck: true,
-        port: 3000,
-        origin: 'http://101.200.57.103/',
-        proxy: {
-            '/apis': {
-                target: url,
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/apis': '/apis'
-                }
-            }
-        }
-    }
+    // server: {
+    //     headers: {
+    //         'Access-Control-Allow-Origin': '*',
+    //     },
+    //     disableHostCheck: true,
+    //     port: 3000,
+    //     origin: 'http://101.200.57.103/',
+    //     proxy: {
+    //         '/apis': {
+    //             target: url,
+    //             changeOrigin: true,
+    //             pathRewrite: {
+    //                 '^/apis': '/apis'
+    //             }
+    //         }
+    //     }
+    // }
 
 })
