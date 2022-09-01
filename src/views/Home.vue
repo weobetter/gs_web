@@ -2,6 +2,11 @@
     <section
         class="main-setion section-1 main-padding"
         :style="'background-image: url(' + bg1 + ');'"
+        :ref="
+            (el) => {
+                refList[0] = el;
+            }
+        "
     >
         <div class="header flex items-center justify-between">
             <div class="logo shadow flex items-center justify-between">
@@ -22,7 +27,14 @@
             <img :src="banner" class="w-full" />
         </div>
     </section>
-    <section class="main-setion section-2 relative">
+    <section
+        class="main-setion section-2 relative"
+        :ref="
+            (el) => {
+                refList[1] = el;
+            }
+        "
+    >
         <div class="desc flex justify-center">
             <p class="text-7xl transform desc_1">让Web3用户</p>
             <p class="text-9xl transform desc_2">“身临其境”</p>
@@ -31,6 +43,11 @@
     <section
         class="main-setion section-3 main-padding flex flex-col justify-center"
         :style="'background-image: url(' + bg3 + ');'"
+        :ref="
+            (el) => {
+                refList[2] = el;
+            }
+        "
     >
         <p class="text-7xl mb-20">故事梗概</p>
         <div class="desc flex flex-col justify-center">
@@ -52,15 +69,34 @@
         </div>
     </section>
 
-    <section class="main-setion section-4 flex justify-center items-center">
+    <section
+        class="main-setion section-4 flex justify-center items-center"
+        :ref="
+            (el) => {
+                refList[3] = el;
+            }
+        "
+    >
         <img :src="bg4" />
     </section>
-    <section class="main-setion section-5 flex justify-center items-center">
+    <section
+        class="main-setion section-5 flex justify-center items-center"
+        :ref="
+            (el) => {
+                refList[4] = el;
+            }
+        "
+    >
         <img :src="bg5" />
     </section>
 
     <section
         class="main-setion section-6 main-padding flex flex-col justify-center items-center"
+        :ref="
+            (el) => {
+                refList[5] = el;
+            }
+        "
     >
         <p class="text-7xl mb-20 text-center">
             持有者
@@ -83,6 +119,11 @@
 
     <section
         class="main-setion section-7 main-padding flex flex-col justify-center items-center"
+        :ref="
+            (el) => {
+                refList[6] = el;
+            }
+        "
     >
         <p
             class="text-7xl mb-20 text-center title"
@@ -125,6 +166,11 @@
     <section
         class="main-setion section-8 main-padding flex flex-col justify-center items-center"
         :style="'background-image: url(' + bg8 + ');'"
+        :ref="
+            (el) => {
+                refList[7] = el;
+            }
+        "
     >
         <div class="desc flex items-center justify-between">
             <div class="left">团队成员</div>
@@ -133,7 +179,10 @@
                     <div v-for="item in members1" :key="item" class="item">
                         <img :src="item.avatar" />
                         <p class="name">{{ item.name }}</p>
-                        <div v-for="cItem in item.expirences">
+                        <div
+                            v-for="cItem in item.expirences"
+                            :key="cItem.expirence"
+                        >
                             <p class="expirence">
                                 {{ cItem.expirence }}
                             </p>
@@ -145,7 +194,10 @@
                     <div v-for="item in members2" :key="item" class="item">
                         <img :src="item.avatar" />
                         <p class="name">{{ item.name }}</p>
-                        <div v-for="cItem in item.expirences">
+                        <div
+                            v-for="cItem in item.expirences"
+                            :key="cItem.expirence"
+                        >
                             <p class="expirence">
                                 {{ cItem.expirence }}
                             </p>
@@ -160,6 +212,11 @@
     <section
         class="main-setion section-9 main-padding flex flex-col justify-center items-center"
         :style="'background-image: url(' + bg9 + ');'"
+        :ref="
+            (el) => {
+                refList[8] = el;
+            }
+        "
     >
         <div class="desc relative">
             <img src="@/assets/bird_icon.png" />
@@ -200,6 +257,7 @@ import SectionBg9 from '@/assets/section_bg_9.jpg';
 import RoadMapBg from '@/assets/road_map_line.png';
 import Banner from '@/assets/game_show_banner.jpg';
 import { onMounted, reactive, toRefs, ref } from 'vue';
+import { throttle } from 'lodash-es';
 
 const bg1 = ref(SectionBg1);
 const bg3 = ref(SectionBg3);
@@ -368,6 +426,48 @@ const menus = ref([
 ]);
 
 onMounted(() => {});
+const refList = ref([]);
+const activeSection = ref(1);
+const MAX_SECTION = 8;
+const doScroll = () => {
+    const targetIndex = activeSection.value;
+    const targetDom = refList.value[targetIndex];
+    const domOffsetTop = targetDom.offsetTop;
+    const computedTop = window.innerHeight * targetIndex;
+    console.log(computedTop, domOffsetTop, targetDom);
+
+    // document.body.scrollTo({
+    //     top: computedTop,
+    //     left: 0,
+    //     behavior: 'smooth'
+    // });
+    document.body.scrollTo(0, computedTop, {
+        top: computedTop,
+        left: 0,
+        behavior: 'smooth'
+    });
+    // window.scrollTo(0, computedTop);
+    // targetDom.scrollIntoView({
+    //     behavior: 'smooth',
+    //     block: 'end',
+    //     inline: 'nearest',
+    // });
+    // targetDom.scrollIntoView();
+};
+const mouseWheel = (e) => {
+    const isDown = e.deltaY > 0;
+    if (isDown) {
+        if (activeSection.value >= MAX_SECTION) {
+            return
+        }
+        activeSection.value++;
+        doScroll();
+    } else if (activeSection.value > 0) {
+        activeSection.value--;
+        doScroll();
+    }
+};
+window.onmousewheel = throttle(mouseWheel, 600);
 </script>
 <style lang="scss" scoped>
 .fullpage-container {
