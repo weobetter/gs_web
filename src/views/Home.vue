@@ -1,245 +1,315 @@
 <template>
-    <section
-        class="main-setion section-1 main-padding"
-        :style="'background-image: url(' + bg1 + ');'"
-        :ref="
-            (el) => {
-                refList[0] = el;
-            }
-        "
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
     >
-        <div class="header flex items-center justify-between">
-            <div class="logo shadow flex items-center justify-between">
-                <img src="@/assets/logo.jpg" />
-                <span>GAME SHOW</span>
-            </div>
-            <div class="menu shadow flex items-center flex justify-evenly">
-                <div
-                    v-for="item in menus"
-                    :key="item.name"
-                    class="cursor-pointer"
-                >
-                    {{ item.name }}
-                </div>
-            </div>
-        </div>
-        <div class="banner shadow mt-20">
-            <img :src="banner" class="w-full" />
-        </div>
-    </section>
-    <section
-        class="main-setion section-2 relative"
-        :ref="
-            (el) => {
-                refList[1] = el;
-            }
-        "
-    >
-        <div class="desc flex justify-center">
-            <p class="text-7xl transform desc_1">让Web3用户</p>
-            <p class="text-9xl transform desc_2">“身临其境”</p>
-        </div>
-    </section>
-    <section
-        class="main-setion section-3 main-padding flex flex-col justify-center"
-        :style="'background-image: url(' + bg3 + ');'"
-        :ref="
-            (el) => {
-                refList[2] = el;
-            }
-        "
-    >
-        <p class="text-7xl mb-20">故事梗概</p>
-        <div class="desc flex flex-col justify-center">
-            <p class="mb-24">故事发生在2050年上海。</p>
-            <p class="mb-24">随着科技发展，虚拟与现实的界限已经逐渐模糊。</p>
-            <p class="mb-24">
-                名为Eyebags
-                Lab的顶尖开发团队，几个脑洞爆棚的设计师在一家宠物店的储藏间开发Web3
-                GAME Creator AI ——“小K”，可以通过智能合约创造游戏。
-            </p>
-            <p class="mb-24">
-                在制造卡牌游戏中，“小K”意外制造只能新型病毒，病毒将“小K”释放到了公共网络，找到了现实世界与虚拟世界的通道，执行原本游戏设计的逻辑，游戏元素被“小K”释放到现实中。
-            </p>
-            <p class="mb-24">
-                国际黑客组织也盯上了“小K”，企图利用它去实现自己的邪恶的目的。Eyebags
-                Lab组成了一支“小K”收集小队，企图回收“小K”核心代码碎片，夺得“小K”控制权（POS），与国际黑客组织开始了对决。
-            </p>
-            <p>世界危机一触即发...</p>
-        </div>
-    </section>
-
-    <section
-        class="main-setion section-4 flex justify-center items-center"
-        :ref="
-            (el) => {
-                refList[3] = el;
-            }
-        "
-    >
-        <img :src="bg4" />
-    </section>
-    <section
-        class="main-setion section-5 flex justify-center items-center"
-        :ref="
-            (el) => {
-                refList[4] = el;
-            }
-        "
-    >
-        <img :src="bg5" />
-    </section>
-
-    <section
-        class="main-setion section-6 main-padding flex flex-col justify-center items-center"
-        :ref="
-            (el) => {
-                refList[5] = el;
-            }
-        "
-    >
-        <p class="text-7xl mb-20 text-center">
-            持有者
-            <span class="text-9xl" style="color: var(--theme)">权益</span>
-        </p>
-        <div class="desc flex flex-col justify-center">
-            <p class="mb-6 text-4xl">
-                >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
-            </p>
-            <p class="mb-6 text-4xl">
-                >权益二：Gameshow数藏Top3持有者，其形象会随机出现在未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
-            </p>
-            <p class="mb-6 text-4xl">
-                >权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow
-                Pass空投，并享受Gameshow后续项目的收益分红
-            </p>
-            <p class="mb-6 text-4xl">>权益四：线下活动受邀资格+线下周边领取</p>
-        </div>
-    </section>
-
-    <section
-        class="main-setion section-7 main-padding flex flex-col justify-center items-center"
-        :ref="
-            (el) => {
-                refList[6] = el;
-            }
-        "
-    >
-        <p
-            class="text-7xl mb-20 text-center title"
-            :style="'background-image: url(' + roadMapBg + ');'"
+        <section
+            v-if="activeSection === 0"
+            class="main-setion section-1 main-padding"
+            :style="'background-image: url(' + bg1 + ');'"
+            :ref="
+                (el) => {
+                    refList[0] = el;
+                }
+            "
         >
-            Road<span style="color: rgb(251, 79, 243)">Map</span>
-        </p>
-        <div class="desc flex items-center justify-center">
-            <div class="left">2022</div>
-            <div class="right">
-                <p class="month">9月</p>
-                <p class="desc">
-                    项目启动，前期预热（数字藏品发型，团队PV公布）
-                </p>
-                <p class="month">10月</p>
-                <p class="desc">海外Game Show Pass卡空头开始，并确定出境任务</p>
-                <p class="month">11月</p>
-                <p class="desc">公布Game Show PV、系列片量产开始</p>
-                <p class="month">12月</p>
-                <p class="desc">
-                    与蓝筹NFT项目方+影视界明星举办线下AMA，交流项目
-                </p>
-            </div>
-        </div>
-        <div class="desc flex items-center justify-center">
-            <div class="left">2023</div>
-            <div class="right">
-                <p class="month">2月</p>
-                <p class="desc">公布第一季部分剧情，引导用户参与投票</p>
-                <p class="month">3月</p>
-                <p class="desc">建议GameShow线下主题公园</p>
-                <p class="desc">前6集准备完毕，公开第一集，月更/半月更</p>
-                <p class="month">5月</p>
-                <p class="desc">完成第一季动画制作</p>
-                <p class="month">8月</p>
-                <p class="desc">第一季12集播放结束，第二季连播</p>
-            </div>
-        </div>
-    </section>
-    <section
-        class="main-setion section-8 main-padding flex flex-col justify-center items-center"
-        :style="'background-image: url(' + bg8 + ');'"
-        :ref="
-            (el) => {
-                refList[7] = el;
-            }
-        "
-    >
-        <div class="desc flex items-center justify-between">
-            <div class="left">团队成员</div>
-            <div class="right">
-                <div class="flex items-stretch justify-center items-line">
-                    <div v-for="item in members1" :key="item" class="item">
-                        <img :src="item.avatar" />
-                        <p class="name">{{ item.name }}</p>
-                        <div
-                            v-for="cItem in item.expirences"
-                            :key="cItem.expirence"
-                        >
-                            <p class="expirence">
-                                {{ cItem.expirence }}
-                            </p>
-                            <p class="title">{{ cItem.title }}</p>
-                        </div>
-                    </div>
+            <div class="header flex items-center justify-between">
+                <div class="logo shadow flex items-center justify-between">
+                    <img src="@/assets/logo.jpg" />
+                    <span>GAME SHOW</span>
                 </div>
-                <div class="flex items-stretch justify-center items-line">
-                    <div v-for="item in members2" :key="item" class="item">
-                        <img :src="item.avatar" />
-                        <p class="name">{{ item.name }}</p>
-                        <div
-                            v-for="cItem in item.expirences"
-                            :key="cItem.expirence"
-                        >
-                            <p class="expirence">
-                                {{ cItem.expirence }}
-                            </p>
-                            <p class="title">{{ cItem.title }}</p>
-                        </div>
+                <div class="menu shadow flex items-center flex justify-evenly">
+                    <div
+                        v-for="item in menus"
+                        :key="item.name"
+                        class="cursor-pointer"
+                    >
+                        {{ item.name }}
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section
-        class="main-setion section-9 main-padding flex flex-col justify-center items-center"
-        :style="'background-image: url(' + bg9 + ');'"
-        :ref="
-            (el) => {
-                refList[8] = el;
-            }
-        "
+            <div class="banner shadow mt-20">
+                <img :src="banner" class="w-full" />
+            </div>
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
     >
-        <div class="desc relative">
-            <img src="@/assets/bird_icon.png" />
-            <p>
-                <span>Kiframe Studio (风帧动画)</span
-                >是一家专注于动画开发的原创公司。公司核心成员均来自迪士尼（中国）本土动画原创部门，团队合作超过五年。成员平均行业时间超过7年，直接参与的动画系列片、电影、短片等项目不少于30部。通过在迪士尼、梦工厂等长期以来积累的经验，Kiframe的原创能力以及对项目整体的制作把控，在业内受到一致认可。2021年Kiframe成立元宇宙部门，招聘专家研发适合Kifame自身情况的AI图像生成软件以及风格迁移算法，以传统web2.0的角度去探索全新的web3.0的世界，期望能碰撞出不同的火花。
+        <section
+            v-if="activeSection === 1"
+            class="main-setion section-2 relative"
+            :ref="
+                (el) => {
+                    refList[1] = el;
+                }
+            "
+        >
+            <div class="desc flex justify-center">
+                <p class="text-7xl transform desc_1">让Web3用户</p>
+                <p class="text-9xl transform desc_2">“身临其境”</p>
+            </div>
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
+    >
+        <section
+            v-if="activeSection === 2"
+            class="main-setion section-3 main-padding flex flex-col justify-center"
+            :style="'background-image: url(' + bg3 + ');'"
+            :ref="
+                (el) => {
+                    refList[2] = el;
+                }
+            "
+        >
+            <p class="text-7xl mb-20">故事梗概</p>
+            <div class="desc flex flex-col justify-center">
+                <p class="mb-24">故事发生在2050年上海。</p>
+                <p class="mb-24">
+                    随着科技发展，虚拟与现实的界限已经逐渐模糊。
+                </p>
+                <p class="mb-24">
+                    名为Eyebags
+                    Lab的顶尖开发团队，几个脑洞爆棚的设计师在一家宠物店的储藏间开发Web3
+                    GAME Creator AI ——“小K”，可以通过智能合约创造游戏。
+                </p>
+                <p class="mb-24">
+                    在制造卡牌游戏中，“小K”意外制造只能新型病毒，病毒将“小K”释放到了公共网络，找到了现实世界与虚拟世界的通道，执行原本游戏设计的逻辑，游戏元素被“小K”释放到现实中。
+                </p>
+                <p class="mb-24">
+                    国际黑客组织也盯上了“小K”，企图利用它去实现自己的邪恶的目的。Eyebags
+                    Lab组成了一支“小K”收集小队，企图回收“小K”核心代码碎片，夺得“小K”控制权（POS），与国际黑客组织开始了对决。
+                </p>
+                <p>世界危机一触即发...</p>
+            </div>
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
+    >
+        <section
+            v-if="activeSection === 3"
+            class="main-setion section-4 flex justify-center items-center"
+            :ref="
+                (el) => {
+                    refList[3] = el;
+                }
+            "
+        >
+            <img :src="bg4" />
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
+    >
+        <section
+            v-if="activeSection === 4"
+            class="main-setion section-5 flex justify-center items-center"
+            :ref="
+                (el) => {
+                    refList[4] = el;
+                }
+            "
+        >
+            <img :src="bg5" />
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
+    >
+        <section
+            v-if="activeSection === 5"
+            class="main-setion section-6 main-padding flex flex-col justify-center items-center"
+            :ref="
+                (el) => {
+                    refList[5] = el;
+                }
+            "
+        >
+            <p class="text-7xl mb-20 text-center">
+                持有者
+                <span class="text-9xl" style="color: var(--theme)">权益</span>
             </p>
-        </div>
-        <div class="links flex justify-center items-center mt-40 mb-6">
-            <img class="cursor-pointer mx-4 w-10" src="@/assets/twitter.png" />
-            <img class="cursor-pointer mx-4 w-10" src="@/assets/github.png" />
-            <img class="cursor-pointer mx-4 w-10" src="@/assets/twitter.png" />
-            <img class="cursor-pointer mx-4 w-10" src="@/assets/discord.png" />
-        </div>
-        <div class="others flex justify-center items-center mb-10">
-            <div class="cursor-pointer mx-8 text-xl">Security Report</div>
-            <div class="cursor-pointer mx-8 text-xl">Privacy and Cookies</div>
-            <div class="cursor-pointer mx-8 text-xl">Cookies Settings</div>
-        </div>
-        <div class="others flex justify-center items-center">
-            <div class="text-xl">2022 Eyebags Lab, All Rights Reserved</div>
-        </div>
-    </section>
+            <div class="desc flex flex-col justify-center">
+                <p class="mb-6 text-4xl">
+                    >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
+                </p>
+                <p class="mb-6 text-4xl">
+                    >权益二：Gameshow数藏Top3持有者，其形象会随机出现在未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
+                </p>
+                <p class="mb-6 text-4xl">
+                    >权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow
+                    Pass空投，并享受Gameshow后续项目的收益分红
+                </p>
+                <p class="mb-6 text-4xl">
+                    >权益四：线下活动受邀资格+线下周边领取
+                </p>
+            </div>
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
+    >
+        <section
+            v-if="activeSection === 6"
+            class="main-setion section-7 main-padding flex flex-col justify-center items-center"
+            :ref="
+                (el) => {
+                    refList[6] = el;
+                }
+            "
+        >
+            <p
+                class="text-7xl mb-20 text-center title"
+                :style="'background-image: url(' + roadMapBg + ');'"
+            >
+                Road<span style="color: rgb(251, 79, 243)">Map</span>
+            </p>
+            <div class="desc flex items-center justify-center">
+                <div class="left">2022</div>
+                <div class="right">
+                    <p class="month">9月</p>
+                    <p class="desc">
+                        项目启动，前期预热（数字藏品发型，团队PV公布）
+                    </p>
+                    <p class="month">10月</p>
+                    <p class="desc">
+                        海外Game Show Pass卡空头开始，并确定出境任务
+                    </p>
+                    <p class="month">11月</p>
+                    <p class="desc">公布Game Show PV、系列片量产开始</p>
+                    <p class="month">12月</p>
+                    <p class="desc">
+                        与蓝筹NFT项目方+影视界明星举办线下AMA，交流项目
+                    </p>
+                </div>
+            </div>
+            <div class="desc flex items-center justify-center">
+                <div class="left">2023</div>
+                <div class="right">
+                    <p class="month">2月</p>
+                    <p class="desc">公布第一季部分剧情，引导用户参与投票</p>
+                    <p class="month">3月</p>
+                    <p class="desc">建议GameShow线下主题公园</p>
+                    <p class="desc">前6集准备完毕，公开第一集，月更/半月更</p>
+                    <p class="month">5月</p>
+                    <p class="desc">完成第一季动画制作</p>
+                    <p class="month">8月</p>
+                    <p class="desc">第一季12集播放结束，第二季连播</p>
+                </div>
+            </div>
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
+    >
+        <section
+            v-if="activeSection === 7"
+            class="main-setion section-8 main-padding flex flex-col justify-center items-center"
+            :style="'background-image: url(' + bg8 + ');'"
+            :ref="
+                (el) => {
+                    refList[7] = el;
+                }
+            "
+        >
+            <div class="desc flex items-center justify-between">
+                <div class="left">团队成员</div>
+                <div class="right">
+                    <div class="flex items-stretch justify-center items-line">
+                        <div v-for="item in members1" :key="item" class="item">
+                            <img :src="item.avatar" />
+                            <p class="name">{{ item.name }}</p>
+                            <div
+                                v-for="cItem in item.expirences"
+                                :key="cItem.expirence"
+                            >
+                                <p class="expirence">
+                                    {{ cItem.expirence }}
+                                </p>
+                                <p class="title">{{ cItem.title }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-stretch justify-center items-line">
+                        <div v-for="item in members2" :key="item" class="item">
+                            <img :src="item.avatar" />
+                            <p class="name">{{ item.name }}</p>
+                            <div
+                                v-for="cItem in item.expirences"
+                                :key="cItem.expirence"
+                            >
+                                <p class="expirence">
+                                    {{ cItem.expirence }}
+                                </p>
+                                <p class="title">{{ cItem.title }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn "
+        
+    >
+        <section
+            v-if="activeSection === 8"
+            class="main-setion section-9 main-padding flex flex-col justify-center items-center"
+            :style="'background-image: url(' + bg9 + ');'"
+            :ref="
+                (el) => {
+                    refList[8] = el;
+                }
+            "
+        >
+            <div class="desc relative">
+                <img src="@/assets/bird_icon.png" />
+                <p>
+                    <span>Kiframe Studio (风帧动画)</span
+                    >是一家专注于动画开发的原创公司。公司核心成员均来自迪士尼（中国）本土动画原创部门，团队合作超过五年。成员平均行业时间超过7年，直接参与的动画系列片、电影、短片等项目不少于30部。通过在迪士尼、梦工厂等长期以来积累的经验，Kiframe的原创能力以及对项目整体的制作把控，在业内受到一致认可。2021年Kiframe成立元宇宙部门，招聘专家研发适合Kifame自身情况的AI图像生成软件以及风格迁移算法，以传统web2.0的角度去探索全新的web3.0的世界，期望能碰撞出不同的火花。
+                </p>
+            </div>
+            <div class="links flex justify-center items-center mt-40 mb-6">
+                <img
+                    class="cursor-pointer mx-4 w-10"
+                    src="@/assets/twitter.png"
+                />
+                <img
+                    class="cursor-pointer mx-4 w-10"
+                    src="@/assets/github.png"
+                />
+                <img
+                    class="cursor-pointer mx-4 w-10"
+                    src="@/assets/twitter.png"
+                />
+                <img
+                    class="cursor-pointer mx-4 w-10"
+                    src="@/assets/discord.png"
+                />
+            </div>
+            <div class="others flex justify-center items-center mb-10">
+                <div class="cursor-pointer mx-8 text-xl">Security Report</div>
+                <div class="cursor-pointer mx-8 text-xl">
+                    Privacy and Cookies
+                </div>
+                <div class="cursor-pointer mx-8 text-xl">Cookies Settings</div>
+            </div>
+            <div class="others flex justify-center items-center">
+                <div class="text-xl">2022 Eyebags Lab, All Rights Reserved</div>
+            </div>
+        </section>
+    </transition>
 </template>
 <script setup>
 import SectionBg1 from '@/assets/section_bg_1.png';
@@ -427,25 +497,25 @@ const menus = ref([
 
 onMounted(() => {});
 const refList = ref([]);
-const activeSection = ref(1);
+const activeSection = ref(0);
 const MAX_SECTION = 8;
 const doScroll = () => {
-    const targetIndex = activeSection.value;
-    const targetDom = refList.value[targetIndex];
-    const domOffsetTop = targetDom.offsetTop;
-    const computedTop = window.innerHeight * targetIndex;
-    console.log(computedTop, domOffsetTop, targetDom);
+    // const targetIndex = activeSection.value;
+    // const targetDom = refList.value[targetIndex];
+    // const domOffsetTop = targetDom.offsetTop;
+    // const computedTop = window.innerHeight * targetIndex;
+    // console.log(computedTop, domOffsetTop, targetDom);
 
     // document.body.scrollTo({
     //     top: computedTop,
     //     left: 0,
     //     behavior: 'smooth'
     // });
-    document.body.scrollTo(0, computedTop, {
-        top: computedTop,
-        left: 0,
-        behavior: 'smooth'
-    });
+    // document.body.scrollTo(0, computedTop, {
+    //     top: computedTop,
+    //     left: 0,
+    //     behavior: 'smooth'
+    // });
     // window.scrollTo(0, computedTop);
     // targetDom.scrollIntoView({
     //     behavior: 'smooth',
@@ -458,7 +528,7 @@ const mouseWheel = (e) => {
     const isDown = e.deltaY > 0;
     if (isDown) {
         if (activeSection.value >= MAX_SECTION) {
-            return
+            return;
         }
         activeSection.value++;
         doScroll();
@@ -652,12 +722,12 @@ window.onmousewheel = throttle(mouseWheel, 600);
         color: white;
         width: 1200px;
         .desc_1 {
-            rotate: -10deg;
+            transform: rotate(-10deg);
             margin-top: 80px;
         }
 
         .desc_2 {
-            rotate: 20deg;
+            transform: rotate(20deg);
             margin-left: -60px;
             font-weight: bold;
         }

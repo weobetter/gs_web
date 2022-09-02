@@ -15,7 +15,7 @@ export default [
     },
     {
         path: '/',
-        name: 'main',
+        name: 'all',
         meta: { title: "首页" },
         component: () =>
             import ('@/views/Home.vue'),
