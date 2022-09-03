@@ -23,6 +23,7 @@
                         v-for="item in menus"
                         :key="item.name"
                         class="cursor-pointer"
+                        @click="toTargetSection(item.targetIndex)"
                     >
                         {{ item.name }}
                     </div>
@@ -283,7 +284,7 @@
             <div class="links flex justify-center items-center mt-40 mb-6">
                 <img
                     class="cursor-pointer mx-4 w-10"
-                    src="@/assets/twitter.png"
+                    src="@/assets/position.png"
                 />
                 <img
                     class="cursor-pointer mx-4 w-10"
@@ -479,22 +480,24 @@ const members2 = ref([
 const menus = ref([
     {
         name: '故事梗概',
-        target: '',
+        targetIndex: 2,
     },
     {
         name: '参与方式',
-        target: '',
+        targetIndex: 4,
     },
     {
         name: 'Roadmap',
-        target: '',
+        targetIndex: 6,
     },
     {
         name: '团队介绍',
-        target: '',
+        targetIndex: 7,
     },
 ]);
-
+const toTargetSection = (targetIndex) => {
+    activeSection.value = targetIndex;
+};
 onMounted(() => {});
 const refList = ref([]);
 const activeSection = ref(0);
