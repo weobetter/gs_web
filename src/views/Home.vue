@@ -1,8 +1,5 @@
 <template>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 0"
             class="main-setion section-1 main-padding"
@@ -15,7 +12,7 @@
         >
             <div class="header flex items-center justify-between">
                 <div class="logo shadow flex items-center justify-between">
-                    <img src="@/assets/logo.jpg" />
+                    <img :src="`${OSS_BASE}/logo.jpg`" />
                     <span>GAME SHOW</span>
                 </div>
                 <div class="menu shadow flex items-center flex justify-evenly">
@@ -34,10 +31,7 @@
             </div>
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 1"
             class="main-setion section-2 relative"
@@ -53,10 +47,7 @@
             </div>
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 2"
             class="main-setion section-3 main-padding flex flex-col justify-center"
@@ -89,10 +80,7 @@
             </div>
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 3"
             class="main-setion section-4 flex justify-center items-center"
@@ -105,10 +93,7 @@
             <img :src="bg4" />
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 4"
             class="main-setion section-5 flex justify-center items-center"
@@ -121,29 +106,26 @@
             <img :src="bg5" />
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 5"
-            class="main-setion section-6 main-padding flex flex-col justify-center items-center"
+            class="main-setion section-6 main-width flex flex-col justify-center"
             :ref="
                 (el) => {
                     refList[5] = el;
                 }
             "
         >
-            <p class="text-7xl mb-20 text-center">
+            <p class="text-7xl mb-20 font-bold">
                 持有者
-                <span class="text-9xl" style="color: var(--theme)">权益</span>
+                <span class="" style="color: var(--theme)">权益</span>
             </p>
             <div class="desc flex flex-col justify-center">
                 <p class="mb-6 text-4xl">
                     >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
                 </p>
                 <p class="mb-6 text-4xl">
-                    >权益二：Gameshow数藏Top3持有者，其形象会随机出现在未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
+                    >权益二：Gameshow数藏Top3持有者，其形象会随机出现未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
                 </p>
                 <p class="mb-6 text-4xl">
                     >权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow
@@ -153,12 +135,31 @@
                     >权益四：线下活动受邀资格+线下周边领取
                 </p>
             </div>
+            <div class="flex justify-between items-stretch mt-28">
+                <img :src="`${OSS_BASE}/gs_pass.svg`" class="mr-20" />
+                <div class="flex flex-col justify-evenly">
+                    <p class="mb-6 text-7xl">Gam3Show Pass</p>
+                    <p class="text-4xl leading-relaxed">
+                        Gam3Show Pass 是 1,000 张通往 Web3
+                        动画生态的通行证集合。同时，Pass 的持有者也将会成为由
+                        Kiframe 工作室打造的 Web3 最大动画生态的参与者与决策者。
+                    </p>
+                    <div
+                        class="more-btn flex justify-between items-center cursor-pointer"
+                        @click="
+                            outsideURL(
+                                'https://opensea.io/collection/gam3show-pass'
+                            )
+                        "
+                    >
+                        <img :src="`${OSS_BASE}/gs_pass_btn.svg`"/>
+                        <span class="ml-3 text-2xl">了解更多</span>
+                    </div>
+                </div>
+            </div>
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 6"
             class="main-setion section-7 main-padding flex flex-col justify-center items-center"
@@ -209,10 +210,7 @@
             </div>
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 7"
             class="main-setion section-8 main-padding flex flex-col justify-center items-center"
@@ -260,10 +258,7 @@
             </div>
         </section>
     </transition>
-    <transition
-        enter-active-class="animate__animated animate__fadeIn "
-        
-    >
+    <transition enter-active-class="animate__animated animate__fadeIn ">
         <section
             v-if="activeSection === 8"
             class="main-setion section-9 main-padding flex flex-col justify-center items-center"
@@ -275,7 +270,7 @@
             "
         >
             <div class="desc relative">
-                <img src="@/assets/bird_icon.png" />
+                <img :src="`${OSS_BASE}/bird_icon.png`"/>
                 <p>
                     <span>Kiframe Studio (风帧动画)</span
                     >是一家专注于动画开发的原创公司。公司核心成员均来自迪士尼（中国）本土动画原创部门，团队合作超过五年。成员平均行业时间超过7年，直接参与的动画系列片、电影、短片等项目不少于30部。通过在迪士尼、梦工厂等长期以来积累的经验，Kiframe的原创能力以及对项目整体的制作把控，在业内受到一致认可。2021年Kiframe成立元宇宙部门，招聘专家研发适合Kifame自身情况的AI图像生成软件以及风格迁移算法，以传统web2.0的角度去探索全新的web3.0的世界，期望能碰撞出不同的火花。
@@ -284,19 +279,19 @@
             <div class="links flex justify-center items-center mt-40 mb-6">
                 <img
                     class="cursor-pointer mx-4 w-10"
-                    src="@/assets/position.png"
+                    :src="`${OSS_BASE}/position.png`"
                 />
                 <img
                     class="cursor-pointer mx-4 w-10"
-                    src="@/assets/github.png"
+                    :src="`${OSS_BASE}/github.png`"
                 />
                 <img
                     class="cursor-pointer mx-4 w-10"
-                    src="@/assets/twitter.png"
+                    :src="`${OSS_BASE}/twitter.png`"
                 />
                 <img
                     class="cursor-pointer mx-4 w-10"
-                    src="@/assets/discord.png"
+                    :src="`${OSS_BASE}/discord.png`"
                 />
             </div>
             <div class="others flex justify-center items-center mb-10">
@@ -313,35 +308,25 @@
     </transition>
 </template>
 <script setup>
-import SectionBg1 from '@/assets/section_bg_1.png';
-import SectionBg3 from '@/assets/section_bg_3.png';
-import SectionBg4 from '@/assets/section_bg_4.jpg';
-import SectionBg5 from '@/assets/section_bg_5.jpg';
-import Avatar1 from '@/assets/ava_1.png';
-import Avatar2 from '@/assets/ava_2.png';
-import Avatar3 from '@/assets/ava_3.png';
-import Avatar4 from '@/assets/ava_4.png';
-import Avatar5 from '@/assets/ava_5.png';
-import Avatar6 from '@/assets/ava_6.png';
-import SectionBg8 from '@/assets/section_bg_8.jpg';
-import SectionBg9 from '@/assets/section_bg_9.jpg';
-import RoadMapBg from '@/assets/road_map_line.png';
-import Banner from '@/assets/game_show_banner.jpg';
+
 import { onMounted, reactive, toRefs, ref } from 'vue';
 import { throttle } from 'lodash-es';
-
-const bg1 = ref(SectionBg1);
-const bg3 = ref(SectionBg3);
-const bg4 = ref(SectionBg4);
-const bg5 = ref(SectionBg5);
-const bg8 = ref(SectionBg8);
-const bg9 = ref(SectionBg9);
-const roadMapBg = ref(RoadMapBg);
-const banner = ref(Banner);
+import { useRouter } from 'vue-router';
+const OSS_BASE =
+    'https://gs-1253494566.cos.ap-shanghai.myqcloud.com/web_static/assets';
+const currentRoute = useRouter()?.currentRoute || {};
+const bg1 = ref(`${OSS_BASE}/section_bg_1.png`);
+const bg3 = ref(`${OSS_BASE}/section_bg_3.png`);
+const bg4 = ref(`${OSS_BASE}/section_bg_4.jpg`);
+const bg5 = ref(`${OSS_BASE}/section_bg_5.jpg`);
+const bg8 = ref(`${OSS_BASE}/section_bg_8.jpg`);
+const bg9 = ref(`${OSS_BASE}/section_bg_9.jpg`);
+const roadMapBg = ref(`${OSS_BASE}/road_map_line.png`);
+const banner = ref(`${OSS_BASE}/game_show_banner.jpg`);
 
 const members1 = ref([
     {
-        avatar: Avatar1,
+        avatar: `${OSS_BASE}/ava_1.png`,
         name: 'Frank',
         expirences: [
             {
@@ -366,34 +351,27 @@ const members1 = ref([
             },
         ],
     },
+
     {
-        avatar: Avatar2,
-        name: 'William黄',
+        avatar: `${OSS_BASE}/ava_6.png`,
+        name: 'Winnie',
         expirences: [
             {
                 expirence: '-Eyebags Lab',
-                title: 'Partner',
+                title: '美术总监',
             },
             {
-                expirence: '-Web 3.0',
-                title: 'Blockchain Product Manager',
+                expirence: '-风帧文化',
+                title: '前期概念设计师',
             },
             {
-                expirence: '-Dorahacks',
-                title: 'Developer Partner',
-            },
-            {
-                expirence: '-Microsoft',
-                title: 'Hackathon Champion 2020',
-            },
-            {
-                expirence: '-百度 AI',
-                title: 'Contributor',
+                expirence: '-京都情报大学院大学',
+                title: 'IT应用硕士',
             },
         ],
     },
     {
-        avatar: Avatar3,
+        avatar: `${OSS_BASE}/ava_3.png`,
         name: 'Fei Chen',
         expirences: [
             {
@@ -421,7 +399,33 @@ const members1 = ref([
 ]);
 const members2 = ref([
     {
-        avatar: Avatar4,
+        avatar: `${OSS_BASE}/ava_2.png`,
+        name: 'George',
+        expirences: [
+            {
+                expirence: '-Eyebags Lab',
+                title: 'Partner',
+            },
+            {
+                expirence: '-Web 3.0',
+                title: 'Blockchain Product Manager',
+            },
+            {
+                expirence: '-Dorahacks',
+                title: 'Developer Partner',
+            },
+            {
+                expirence: '-Microsoft',
+                title: 'Hackathon Champion 2020',
+            },
+            {
+                expirence: '-百度 AI',
+                title: 'Contributor',
+            },
+        ],
+    },
+    {
+        avatar: `${OSS_BASE}/ava_4.svg`,
         name: 'Khaines',
         expirences: [
             {
@@ -442,7 +446,7 @@ const members2 = ref([
         ],
     },
     {
-        avatar: Avatar5,
+        avatar: `${OSS_BASE}/ava_5.svg`,
         name: 'Edr',
         expirences: [
             {
@@ -455,24 +459,6 @@ const members2 = ref([
             },
             {
                 expirence: '-参与多个出海NFT项目',
-            },
-        ],
-    },
-    {
-        avatar: Avatar6,
-        name: 'Winnie',
-        expirences: [
-            {
-                expirence: '-Eyebags Lab',
-                title: '美术总监',
-            },
-            {
-                expirence: '-风帧文化',
-                title: '前期概念设计师',
-            },
-            {
-                expirence: '-京都情报大学院大学',
-                title: 'IT应用硕士',
             },
         ],
     },
@@ -500,33 +486,23 @@ const toTargetSection = (targetIndex) => {
 };
 onMounted(() => {});
 const refList = ref([]);
-const activeSection = ref(0);
-const MAX_SECTION = 8;
-const doScroll = () => {
-    // const targetIndex = activeSection.value;
-    // const targetDom = refList.value[targetIndex];
-    // const domOffsetTop = targetDom.offsetTop;
-    // const computedTop = window.innerHeight * targetIndex;
-    // console.log(computedTop, domOffsetTop, targetDom);
+const getHashIndex = (str) => {
+    let result = '';
 
-    // document.body.scrollTo({
-    //     top: computedTop,
-    //     left: 0,
-    //     behavior: 'smooth'
-    // });
-    // document.body.scrollTo(0, computedTop, {
-    //     top: computedTop,
-    //     left: 0,
-    //     behavior: 'smooth'
-    // });
-    // window.scrollTo(0, computedTop);
-    // targetDom.scrollIntoView({
-    //     behavior: 'smooth',
-    //     block: 'end',
-    //     inline: 'nearest',
-    // });
-    // targetDom.scrollIntoView();
+    const infoArr = str?.split('#')?.[1]?.split('&') || [];
+    if (!str || !infoArr.length) {
+        return result;
+    }
+    infoArr.forEach((item) => {
+        const info = item.split('=');
+        if (info?.[0] === 'index') {
+            result = parseInt(info?.[1], 10) || '';
+        }
+    });
+    return result;
 };
+const activeSection = ref(getHashIndex(currentRoute.value.hash) || 0);
+const MAX_SECTION = 8;
 const mouseWheel = (e) => {
     const isDown = e.deltaY > 0;
     if (isDown) {
@@ -534,13 +510,15 @@ const mouseWheel = (e) => {
             return;
         }
         activeSection.value++;
-        doScroll();
     } else if (activeSection.value > 0) {
         activeSection.value--;
-        doScroll();
     }
+    location.hash = `#index=${activeSection.value}`;
 };
-window.onmousewheel = throttle(mouseWheel, 600);
+window.onmousewheel = throttle(mouseWheel, 1100);
+const outsideURL = (link) => {
+    window.open(link);
+};
 </script>
 <style lang="scss" scoped>
 .fullpage-container {
@@ -555,6 +533,9 @@ window.onmousewheel = throttle(mouseWheel, 600);
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.main-width {
+    width: 1200px;
 }
 .main-padding {
     padding: 20px 45px;
@@ -668,10 +649,20 @@ window.onmousewheel = throttle(mouseWheel, 600);
 }
 .section-6 {
     color: white;
+    margin: 0 auto;
     .desc {
-        width: 80%;
         p {
             line-height: 1.5;
+        }
+    }
+    .more-btn {
+        width: 150px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        color: black;
+        img {
+            height: 31.5px;
         }
     }
 }
@@ -748,7 +739,11 @@ window.onmousewheel = throttle(mouseWheel, 600);
     }
 }
 
-.section-4,
+.section-4{
+    img {
+        height: 100%;
+    }
+}
 .section-5 {
     img {
         width: 100%;
