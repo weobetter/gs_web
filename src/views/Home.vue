@@ -1,15 +1,14 @@
 <template>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 0"
-            class="main-setion section-1 main-padding"
-            :style="'background-image: url(' + bg1 + ');'"
-            :ref="
-                (el) => {
-                    refList[0] = el;
-                }
-            "
-        >
+    <section
+        class="section-1"
+        :style="'background-image: url(' + bg1 + ');'"
+        :ref="
+            (el) => {
+                refList[0] = el;
+            }
+        "
+    >
+        <div class="main-setion main-padding mt-0">
             <div class="header flex items-center justify-between">
                 <div class="logo shadow flex items-center justify-between">
                     <img :src="`${OSS_BASE}/logo.jpg`" />
@@ -26,38 +25,36 @@
                     </div>
                 </div>
             </div>
-            <div class="banner shadow mt-20">
+            <div class="banner shadow mt-20 mb-20">
                 <img :src="banner" class="w-full" />
             </div>
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 1"
-            class="main-setion section-2 relative"
-            :ref="
-                (el) => {
-                    refList[1] = el;
-                }
-            "
-        >
-            <div class="desc flex justify-center">
-                <p class="text-7xl transform desc_1">让Web3用户</p>
-                <p class="text-9xl transform desc_2">“身临其境”</p>
-            </div>
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 2"
-            class="main-setion section-3 main-padding flex flex-col justify-center"
-            :style="'background-image: url(' + bg3 + ');'"
-            :ref="
-                (el) => {
-                    refList[2] = el;
-                }
-            "
-        >
+        </div>
+    </section>
+
+    <section
+        class="main-setion section-2 relative"
+        :ref="
+            (el) => {
+                refList[1] = el;
+            }
+        "
+    >
+        <div class="desc flex justify-center">
+            <p class="text-7xl transform desc_1">让Web3用户</p>
+            <p class="text-9xl transform desc_2">“身临其境”</p>
+        </div>
+    </section>
+
+    <section
+        class="section-3"
+        :style="'background-image: url(' + bg3 + ');'"
+        :ref="
+            (el) => {
+                refList[2] = el;
+            }
+        "
+    >
+        <div class="main-setion main-padding flex flex-col justify-center">
             <p class="text-7xl mb-20">故事梗概</p>
             <div class="desc flex flex-col justify-center">
                 <p class="mb-24">故事发生在2050年上海。</p>
@@ -78,199 +75,190 @@
                 </p>
                 <p>世界危机一触即发...</p>
             </div>
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 3"
-            class="main-setion section-4 flex justify-center items-center"
-            :ref="
-                (el) => {
-                    refList[3] = el;
-                }
-            "
-        >
-            <img :src="bg4" />
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 4"
-            class="main-setion section-5 flex justify-center items-center"
-            :ref="
-                (el) => {
-                    refList[4] = el;
-                }
-            "
-        >
-            <img :src="bg5" />
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 5"
-            class="main-setion section-6 main-width flex flex-col justify-center"
-            :ref="
-                (el) => {
-                    refList[5] = el;
-                }
-            "
-        >
-            <p class="text-7xl mb-20 font-bold">
-                持有者
-                <span class="" style="color: var(--theme)">权益</span>
+        </div>
+    </section>
+
+    <section
+        class="main-setion section-4 flex justify-center items-center"
+        :ref="
+            (el) => {
+                refList[3] = el;
+            }
+        "
+    >
+        <img :src="bg4" />
+    </section>
+
+    <section
+        class="main-setion section-5 flex justify-center items-center"
+        :ref="
+            (el) => {
+                refList[4] = el;
+            }
+        "
+    >
+        <img :src="bg5" />
+    </section>
+
+    <section
+        class="main-setion section-6 flex flex-col justify-center"
+        :ref="
+            (el) => {
+                refList[5] = el;
+            }
+        "
+    >
+        <p class="text-7xl mb-20 font-bold">
+            持有者
+            <span class="" style="color: var(--theme)">权益</span>
+        </p>
+        <div class="desc flex flex-col justify-center">
+            <p class="mb-6 text-4xl">
+                >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
             </p>
-            <div class="desc flex flex-col justify-center">
-                <p class="mb-6 text-4xl">
-                    >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
-                </p>
-                <p class="mb-6 text-4xl">
-                    >权益二：Gameshow数藏Top3持有者，其形象会随机出现未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
-                </p>
-                <p class="mb-6 text-4xl">
-                    >权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow
-                    Pass空投，并享受Gameshow后续项目的收益分红
-                </p>
-                <p class="mb-6 text-4xl">
-                    >权益四：线下活动受邀资格+线下周边领取
-                </p>
-            </div>
-            <div class="flex justify-between items-stretch mt-28">
-                <img :src="`${OSS_BASE}/gs_pass.svg`" class="mr-20" />
-                <div class="flex flex-col justify-evenly">
-                    <p class="mb-6 text-7xl">Gam3Show Pass</p>
-                    <p class="text-4xl leading-relaxed">
-                        Gam3Show Pass 是 1,000 张通往 Web3
-                        动画生态的通行证集合。同时，Pass 的持有者也将会成为由
-                        Kiframe 工作室打造的 Web3 最大动画生态的参与者与决策者。
-                    </p>
-                    <div
-                        class="more-btn flex justify-between items-center cursor-pointer"
-                        @click="
-                            outsideURL(
-                                'https://opensea.io/collection/gam3show-pass'
-                            )
-                        "
-                    >
-                        <img :src="`${OSS_BASE}/gs_pass_btn.svg`"/>
-                        <span class="ml-3 text-2xl">了解更多</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 6"
-            class="main-setion section-7 main-padding flex flex-col justify-center items-center"
-            :ref="
-                (el) => {
-                    refList[6] = el;
-                }
-            "
-        >
-            <p
-                class="text-7xl mb-20 text-center title"
-                :style="'background-image: url(' + roadMapBg + ');'"
-            >
-                Road<span style="color: rgb(251, 79, 243)">Map</span>
+            <p class="mb-6 text-4xl">
+                >权益二：Gameshow数藏Top3持有者，其形象会随机出现未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
             </p>
-            <div class="desc flex items-center justify-center">
-                <div class="left">2022</div>
-                <div class="right">
-                    <p class="month">9月</p>
-                    <p class="desc">
-                        项目启动，前期预热（数字藏品发型，团队PV公布）
-                    </p>
-                    <p class="month">10月</p>
-                    <p class="desc">
-                        海外Game Show Pass卡空头开始，并确定出境任务
-                    </p>
-                    <p class="month">11月</p>
-                    <p class="desc">公布Game Show PV、系列片量产开始</p>
-                    <p class="month">12月</p>
-                    <p class="desc">
-                        与蓝筹NFT项目方+影视界明星举办线下AMA，交流项目
-                    </p>
+            <p class="mb-6 text-4xl">
+                >权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow
+                Pass空投，并享受Gameshow后续项目的收益分红
+            </p>
+            <p class="mb-6 text-4xl">>权益四：线下活动受邀资格+线下周边领取</p>
+        </div>
+        <div class="flex justify-between items-stretch mt-28">
+            <img :src="`${OSS_BASE}/gs_pass.svg`" class="mr-20" />
+            <div class="flex flex-col justify-evenly">
+                <p class="mb-6 text-7xl">Gam3Show Pass</p>
+                <p class="text-4xl leading-relaxed">
+                    Gam3Show Pass 是 1,000 张通往 Web3
+                    动画生态的通行证集合。同时，Pass 的持有者也将会成为由
+                    Kiframe 工作室打造的 Web3 最大动画生态的参与者与决策者。
+                </p>
+                <div
+                    class="more-btn flex justify-between items-center cursor-pointer"
+                    @click="
+                        outsideURL(
+                            'https://opensea.io/collection/gam3show-pass'
+                        )
+                    "
+                >
+                    <img :src="`${OSS_BASE}/gs_pass_btn.svg`" />
+                    <span class="ml-3 text-2xl">了解更多</span>
                 </div>
             </div>
-            <div class="desc flex items-center justify-center">
-                <div class="left">2023</div>
-                <div class="right">
-                    <p class="month">2月</p>
-                    <p class="desc">公布第一季部分剧情，引导用户参与投票</p>
-                    <p class="month">3月</p>
-                    <p class="desc">建议GameShow线下主题公园</p>
-                    <p class="desc">前6集准备完毕，公开第一集，月更/半月更</p>
-                    <p class="month">5月</p>
-                    <p class="desc">完成第一季动画制作</p>
-                    <p class="month">8月</p>
-                    <p class="desc">第一季12集播放结束，第二季连播</p>
-                </div>
-            </div>
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 7"
-            class="main-setion section-8 main-padding flex flex-col justify-center items-center"
-            :style="'background-image: url(' + bg8 + ');'"
-            :ref="
-                (el) => {
-                    refList[7] = el;
-                }
-            "
+        </div>
+    </section>
+
+    <section
+        class="main-setion section-7 main-padding flex flex-col justify-center items-center"
+        :ref="
+            (el) => {
+                refList[6] = el;
+            }
+        "
+    >
+        <p
+            class="text-7xl mb-20 text-center title"
+            :style="'background-image: url(' + roadMapBg + ');'"
         >
-            <div class="desc flex items-center justify-between">
-                <div class="left">团队成员</div>
-                <div class="right">
-                    <div class="flex items-stretch justify-center items-line">
-                        <div v-for="item in members1" :key="item" class="item">
-                            <img :src="item.avatar" />
-                            <p class="name">{{ item.name }}</p>
-                            <div
-                                v-for="cItem in item.expirences"
-                                :key="cItem.expirence"
-                            >
-                                <p class="expirence">
-                                    {{ cItem.expirence }}
-                                </p>
-                                <p class="title">{{ cItem.title }}</p>
-                            </div>
+            Road<span style="color: rgb(251, 79, 243)">Map</span>
+        </p>
+        <div class="desc flex items-center justify-center">
+            <div class="left">2022</div>
+            <div class="right">
+                <p class="month">9月</p>
+                <p class="desc">
+                    项目启动，前期预热（数字藏品发型，团队PV公布）
+                </p>
+                <p class="month">10月</p>
+                <p class="desc">海外Game Show Pass卡空头开始，并确定出境任务</p>
+                <p class="month">11月</p>
+                <p class="desc">公布Game Show PV、系列片量产开始</p>
+                <p class="month">12月</p>
+                <p class="desc">
+                    与蓝筹NFT项目方+影视界明星举办线下AMA，交流项目
+                </p>
+            </div>
+        </div>
+        <div class="desc flex items-center justify-center">
+            <div class="left">2023</div>
+            <div class="right">
+                <p class="month">2月</p>
+                <p class="desc">公布第一季部分剧情，引导用户参与投票</p>
+                <p class="month">3月</p>
+                <p class="desc">建议GameShow线下主题公园</p>
+                <p class="desc">前6集准备完毕，公开第一集，月更/半月更</p>
+                <p class="month">5月</p>
+                <p class="desc">完成第一季动画制作</p>
+                <p class="month">8月</p>
+                <p class="desc">第一季12集播放结束，第二季连播</p>
+            </div>
+        </div>
+    </section>
+
+    <section
+        class="section-8 flex flex-col justify-center items-center"
+        :style="'background-image: url(' + bg8 + ');'"
+        :ref="
+            (el) => {
+                refList[7] = el;
+            }
+        "
+    >
+        <div
+            class="main-setion main-padding desc flex items-center justify-between"
+        >
+            <div class="left">团队成员</div>
+            <div class="right">
+                <div class="flex items-stretch justify-center items-line">
+                    <div v-for="item in members1" :key="item" class="item">
+                        <img :src="item.avatar" />
+                        <p class="name">{{ item.name }}</p>
+                        <div
+                            v-for="cItem in item.expirences"
+                            :key="cItem.expirence"
+                        >
+                            <p class="expirence">
+                                {{ cItem.expirence }}
+                            </p>
+                            <p class="title">{{ cItem.title }}</p>
                         </div>
                     </div>
-                    <div class="flex items-stretch justify-center items-line">
-                        <div v-for="item in members2" :key="item" class="item">
-                            <img :src="item.avatar" />
-                            <p class="name">{{ item.name }}</p>
-                            <div
-                                v-for="cItem in item.expirences"
-                                :key="cItem.expirence"
-                            >
-                                <p class="expirence">
-                                    {{ cItem.expirence }}
-                                </p>
-                                <p class="title">{{ cItem.title }}</p>
-                            </div>
+                </div>
+                <div class="flex items-stretch justify-center items-line">
+                    <div v-for="item in members2" :key="item" class="item">
+                        <img :src="item.avatar" />
+                        <p class="name">{{ item.name }}</p>
+                        <div
+                            v-for="cItem in item.expirences"
+                            :key="cItem.expirence"
+                        >
+                            <p class="expirence">
+                                {{ cItem.expirence }}
+                            </p>
+                            <p class="title">{{ cItem.title }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </transition>
-    <transition enter-active-class="animate__animated animate__fadeIn ">
-        <section
-            v-if="activeSection === 8"
-            class="main-setion section-9 main-padding flex flex-col justify-center items-center"
-            :style="'background-image: url(' + bg9 + ');'"
-            :ref="
-                (el) => {
-                    refList[8] = el;
-                }
-            "
+        </div>
+    </section>
+
+    <section
+        class="section-9"
+        :style="'background-image: url(' + bg9 + ');'"
+        :ref="
+            (el) => {
+                refList[8] = el;
+            }
+        "
+    >
+        <div
+            class="main-setion main-padding flex flex-col justify-center items-center"
+            style="margin-bottom: 0;"
         >
             <div class="desc relative">
-                <img :src="`${OSS_BASE}/bird_icon.png`"/>
+                <img :src="`${OSS_BASE}/bird_icon.png`" />
                 <p>
                     <span>Kiframe Studio (风帧动画)</span
                     >是一家专注于动画开发的原创公司。公司核心成员均来自迪士尼（中国）本土动画原创部门，团队合作超过五年。成员平均行业时间超过7年，直接参与的动画系列片、电影、短片等项目不少于30部。通过在迪士尼、梦工厂等长期以来积累的经验，Kiframe的原创能力以及对项目整体的制作把控，在业内受到一致认可。2021年Kiframe成立元宇宙部门，招聘专家研发适合Kifame自身情况的AI图像生成软件以及风格迁移算法，以传统web2.0的角度去探索全新的web3.0的世界，期望能碰撞出不同的火花。
@@ -304,11 +292,10 @@
             <div class="others flex justify-center items-center">
                 <div class="text-xl">2022 Eyebags Lab, All Rights Reserved</div>
             </div>
-        </section>
-    </transition>
+        </div>
+    </section>
 </template>
 <script setup>
-
 import { onMounted, reactive, toRefs, ref } from 'vue';
 import { throttle } from 'lodash-es';
 import { useRouter } from 'vue-router';
@@ -521,22 +508,14 @@ const outsideURL = (link) => {
 };
 </script>
 <style lang="scss" scoped>
-.fullpage-container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
 .main-setion {
-    height: 100vh;
-    width: 100vw;
+    width: 80vw;
+    margin: 0px auto;
+    margin-bottom: 80px;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.main-width {
-    width: 1200px;
-}
+
 .main-padding {
     padding: 20px 45px;
 }
@@ -649,7 +628,7 @@ const outsideURL = (link) => {
 }
 .section-6 {
     color: white;
-    margin: 0 auto;
+    height: 100vh;
     .desc {
         p {
             line-height: 1.5;
@@ -668,8 +647,9 @@ const outsideURL = (link) => {
 }
 .section-5 {
     color: white;
+    height: 70vh;
     .desc {
-        width: 1300px;
+        width: 80vw;
         .snd {
             color: var(--theme);
         }
@@ -677,6 +657,8 @@ const outsideURL = (link) => {
 }
 .section-1 {
     position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
     .header {
         height: 45px;
         color: white;
@@ -700,21 +682,16 @@ const outsideURL = (link) => {
         }
     }
     .banner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: calc(100% - 90px);
-        transform: translate(-50%, -50%);
     }
 }
 .section-2 {
+    height: 60vh;
     .desc {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         color: white;
-        width: 1200px;
+        width: 80vw;
+        margin: 0 auto;
+        align-items: center;
+        height: 100%;
         .desc_1 {
             transform: rotate(-10deg);
             margin-top: 80px;
@@ -739,7 +716,7 @@ const outsideURL = (link) => {
     }
 }
 
-.section-4{
+.section-4 {
     img {
         height: 100%;
     }
