@@ -1,7 +1,7 @@
 <template>
     <section
         class="section-1"
-        :style="'background-image: url(' + bg1 + ');'"
+        :style="'background-image:url(' + bg1 + ');'"
         :ref="
             (el) => {
                 refList[0] = el;
