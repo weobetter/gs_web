@@ -1,6 +1,7 @@
 <template>
     <section
         class="section-1"
+        id="section-1"
         :style="'background-image: url(' + bg1 + ');'"
         :ref="
             (el) => {
@@ -15,14 +16,14 @@
                     <span>GAME SHOW</span>
                 </div>
                 <div class="menu shadow flex items-center flex justify-evenly">
-                    <div
+                    <a
                         v-for="item in menus"
                         :key="item.name"
                         class="cursor-pointer"
-                        @click="toTargetSection(item.targetIndex)"
+                        :href="'#section-' + item.targetIndex"
                     >
                         {{ item.name }}
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="banner shadow mt-20 mb-20">
@@ -32,6 +33,7 @@
     </section>
 
     <section
+        id="section-2"
         class="main-setion section-2 relative"
         :ref="
             (el) => {
@@ -46,6 +48,7 @@
     </section>
 
     <section
+        id="section-3"
         class="section-3"
         :style="'background-image: url(' + bg3 + ');'"
         :ref="
@@ -79,6 +82,7 @@
     </section>
 
     <section
+        id="section-4"
         class="main-setion section-4 flex justify-center items-center"
         :ref="
             (el) => {
@@ -90,6 +94,7 @@
     </section>
 
     <section
+        id="section-5"
         class="main-setion section-5 flex justify-center items-center"
         :ref="
             (el) => {
@@ -101,6 +106,7 @@
     </section>
 
     <section
+        id="section-6"
         class="main-setion section-6 flex flex-col justify-center"
         :ref="
             (el) => {
@@ -117,13 +123,14 @@
                 >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
             </p>
             <p class="mb-6 text-4xl">
-                >权益二：Gameshow数藏Top3持有者，其形象会随机出现未来动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
+                >权益二：Gameshow数藏Top持有者，其形象会出现动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
             </p>
             <p class="mb-6 text-4xl">
                 >权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow
                 Pass空投，并享受Gameshow后续项目的收益分红
             </p>
             <p class="mb-6 text-4xl">>权益四：线下活动受邀资格+线下周边领取</p>
+            <p class="mb-6 text-4xl">>权益五：Gameshow元宇宙土地项目入场券</p>
         </div>
         <div class="flex justify-between items-stretch mt-28">
             <img :src="`${OSS_BASE}/gs_pass.svg`" class="mr-20" />
@@ -150,6 +157,7 @@
     </section>
 
     <section
+        id="section-7"
         class="main-setion section-7 main-padding flex flex-col justify-center items-center"
         :ref="
             (el) => {
@@ -197,6 +205,7 @@
     </section>
 
     <section
+        id="section-8"
         class="section-8 flex flex-col justify-center items-center"
         :style="'background-image: url(' + bg8 + ');'"
         :ref="
@@ -245,6 +254,7 @@
     </section>
 
     <section
+        id="section-9"
         class="section-9"
         :style="'background-image: url(' + bg9 + ');'"
         :ref="
@@ -264,7 +274,7 @@
                     >是一家专注于动画开发的原创公司。公司核心成员均来自迪士尼（中国）本土动画原创部门，团队合作超过五年。成员平均行业时间超过7年，直接参与的动画系列片、电影、短片等项目不少于30部。通过在迪士尼、梦工厂等长期以来积累的经验，Kiframe的原创能力以及对项目整体的制作把控，在业内受到一致认可。2021年Kiframe成立元宇宙部门，招聘专家研发适合Kifame自身情况的AI图像生成软件以及风格迁移算法，以传统web2.0的角度去探索全新的web3.0的世界，期望能碰撞出不同的火花。
                 </p>
             </div>
-            <div class="links flex justify-center items-center mt-40 mb-6">
+            <div class="links flex justify-center items-center mt-40 mb-6 hidden">
                 <img
                     class="cursor-pointer mx-4 w-10"
                     :src="`${OSS_BASE}/position.png`"
@@ -282,7 +292,7 @@
                     :src="`${OSS_BASE}/discord.png`"
                 />
             </div>
-            <div class="others flex justify-center items-center mb-10">
+            <div class="others flex justify-center items-center mb-10 mt-40">
                 <div class="cursor-pointer mx-8 text-xl">Security Report</div>
                 <div class="cursor-pointer mx-8 text-xl">
                     Privacy and Cookies
@@ -387,7 +397,7 @@ const members1 = ref([
 const members2 = ref([
     {
         avatar: `${OSS_BASE}/ava_2.png`,
-        name: 'George',
+        name: 'W. George',
         expirences: [
             {
                 expirence: '-Eyebags Lab',
@@ -549,7 +559,7 @@ const outsideURL = (link) => {
         }
     }
     .others {
-        color: rgb(180, 180, 180);
+        color: rgb(255, 255, 255);
     }
 }
 .section-8 {
@@ -587,8 +597,7 @@ const outsideURL = (link) => {
                         text-indent: 30px;
                         margin: 5px auto;
                         font-size: 13px;
-                        color: rgba(255, 255, 255, 0.8);
-                        font-weight: lighter;
+                        color: rgba(255, 255, 255, 1);
                     }
                 }
             }
