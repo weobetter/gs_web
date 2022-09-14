@@ -804,6 +804,9 @@ const outsideURL = (link) => {
 }
 
 @media screen and (max-width: 680px) {
+    body {
+        overflow-x: hidden;
+    }
     .main-padding {
         padding: 10px 20px;
     }
