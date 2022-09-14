@@ -575,6 +575,13 @@ const outsideURL = (link) => {
     window.open(link);
 };
 </script>
+<style lang="scss">
+@media screen and (max-width: 680px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+</style>
 <style lang="scss" scoped>
 .main-setion {
     width: 80vw;
@@ -804,9 +811,6 @@ const outsideURL = (link) => {
 }
 
 @media screen and (max-width: 680px) {
-    body {
-        overflow-x: hidden;
-    }
     .main-padding {
         padding: 10px 20px;
     }
@@ -980,7 +984,7 @@ const outsideURL = (link) => {
             margin-bottom: 20px;
             div {
                 font-size: 15px;
-                margin:  0;
+                margin: 0;
             }
         }
     }
