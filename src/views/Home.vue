@@ -15,7 +15,9 @@
                     <img :src="`${OSS_BASE}/logo.jpg`" />
                     <span>GAME SHOW</span>
                 </div>
-                <div class="menu shadow flex items-center flex justify-evenly">
+                <div
+                    class="menu shadow flex items-center flex justify-evenly pc-menu"
+                >
                     <a
                         v-for="item in menus"
                         :key="item.name"
@@ -24,6 +26,27 @@
                     >
                         {{ item.name }}
                     </a>
+                </div>
+                <div class="mobile-menu">
+                    <el-dropdown>
+                        <span class="el-dropdown-link">
+                            <el-icon class="el-icon--right">
+                                <MoreFilled />
+                            </el-icon>
+                        </span>
+                        <template #dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item
+                                    v-for="item in menus"
+                                    :key="item.name"
+                                >
+                                    <a :href="'#section-' + item.targetIndex">
+                                        {{ item.name }}
+                                    </a>
+                                </el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
                 </div>
             </div>
             <div class="banner shadow mt-20 mb-20">
@@ -58,7 +81,7 @@
         "
     >
         <div class="main-setion main-padding flex flex-col justify-center">
-            <p class="text-7xl mb-20">故事梗概</p>
+            <p class="text-7xl mb-20 section-title">故事梗概</p>
             <div class="desc flex flex-col justify-center">
                 <p class="mb-24">故事发生在2050年上海。</p>
                 <p class="mb-24">
@@ -114,7 +137,7 @@
             }
         "
     >
-        <p class="text-7xl mb-20 font-bold">
+        <p class="text-7xl mb-20 font-bold section-title">
             持有者
             <span class="" style="color: var(--theme)">权益</span>
         </p>
@@ -132,10 +155,10 @@
             <p class="mb-6 text-4xl">>权益四：线下活动受邀资格+线下周边领取</p>
             <p class="mb-6 text-4xl">>权益五：Gameshow元宇宙土地项目入场券</p>
         </div>
-        <div class="flex justify-between items-stretch mt-28">
-            <img :src="`${OSS_BASE}/gs_pass.svg`" class="mr-20" />
-            <div class="flex flex-col justify-evenly">
-                <p class="mb-6 text-7xl">Gam3Show Pass</p>
+        <div class="learn-more flex justify-between items-stretch mt-28">
+            <img :src="`${OSS_BASE}/gs_pass.svg`" class="mr-20 bg-img" />
+            <div class="flex flex-col justify-evenly learn-more__content">
+                <p class="mb-6 text-7xl content-title">Gam3Show Pass</p>
                 <p class="text-4xl leading-relaxed">
                     Gam3Show Pass 是 1,000 张通往 Web3
                     动画生态的通行证集合。同时，Pass 的持有者也将会成为由
@@ -218,7 +241,7 @@
             class="main-setion main-padding desc flex items-center justify-between"
         >
             <div class="left">团队成员</div>
-            <div class="right">
+            <div class="right members-pc">
                 <div class="flex items-stretch justify-center items-line">
                     <div v-for="item in members1" :key="item" class="item">
                         <img :src="item.avatar" />
@@ -250,6 +273,38 @@
                     </div>
                 </div>
             </div>
+            <div class="right members-mobile">
+                <div
+                    class="flex items-stretch justify-center items-line flex-wrap"
+                >
+                    <div v-for="item in members1" :key="item" class="item">
+                        <img :src="item.avatar" />
+                        <p class="name">{{ item.name }}</p>
+                        <div
+                            v-for="cItem in item.expirences"
+                            :key="cItem.expirence"
+                        >
+                            <p class="expirence">
+                                {{ cItem.expirence }}
+                            </p>
+                            <p class="title">{{ cItem.title }}</p>
+                        </div>
+                    </div>
+                    <div v-for="item in members2" :key="item" class="item">
+                        <img :src="item.avatar" />
+                        <p class="name">{{ item.name }}</p>
+                        <div
+                            v-for="cItem in item.expirences"
+                            :key="cItem.expirence"
+                        >
+                            <p class="expirence">
+                                {{ cItem.expirence }}
+                            </p>
+                            <p class="title">{{ cItem.title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -265,7 +320,7 @@
     >
         <div
             class="main-setion main-padding flex flex-col justify-center items-center"
-            style="margin-bottom: 0;"
+            style="margin-bottom: 0"
         >
             <div class="desc relative">
                 <img :src="`${OSS_BASE}/bird_icon.png`" />
@@ -274,7 +329,9 @@
                     >是一家专注于动画开发的原创公司。公司核心成员均来自迪士尼（中国）本土动画原创部门，团队合作超过五年。成员平均行业时间超过7年，直接参与的动画系列片、电影、短片等项目不少于30部。通过在迪士尼、梦工厂等长期以来积累的经验，Kiframe的原创能力以及对项目整体的制作把控，在业内受到一致认可。2021年Kiframe成立元宇宙部门，招聘专家研发适合Kifame自身情况的AI图像生成软件以及风格迁移算法，以传统web2.0的角度去探索全新的web3.0的世界，期望能碰撞出不同的火花。
                 </p>
             </div>
-            <div class="links flex justify-center items-center mt-40 mb-6 hidden">
+            <div
+                class="links flex justify-center items-center mt-40 mb-6 hidden"
+            >
                 <img
                     class="cursor-pointer mx-4 w-10"
                     :src="`${OSS_BASE}/position.png`"
@@ -307,6 +364,7 @@
 </template>
 <script setup>
 import { onMounted, reactive, toRefs, ref } from 'vue';
+import { MoreFilled } from '@element-plus/icons-vue';
 import { throttle } from 'lodash-es';
 import { useRouter } from 'vue-router';
 const OSS_BASE =
@@ -733,6 +791,195 @@ const outsideURL = (link) => {
 .section-5 {
     img {
         width: 100%;
+    }
+}
+.mobile-menu {
+    display: none;
+    font-size: 16px;
+    color: white;
+}
+
+.members-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 680px) {
+    .main-padding {
+        padding: 10px 20px;
+    }
+    .main-setion {
+        width: 95vw;
+    }
+    .pc-menu {
+        display: none;
+    }
+    .mobile-menu {
+        display: block;
+        .el-icon {
+            color: white;
+
+            font-size: 36px;
+        }
+    }
+    .section-1 {
+        .header {
+            margin-top: 10px;
+        }
+    }
+    .section-2 {
+        height: 30vh;
+        .desc_1 {
+            font-size: 2rem;
+        }
+        .desc_2 {
+            font-size: 3rem;
+        }
+    }
+    .section-3 {
+        padding: 0px;
+        background-size: contain;
+        .main-setion {
+            padding: 20px;
+            width: 100vw;
+        }
+        .section-title {
+            font-size: 2.3rem;
+            margin-bottom: 2rem;
+        }
+        .desc {
+            padding: 20px;
+            p {
+                margin-bottom: 1rem;
+                font-size: 16px;
+            }
+        }
+    }
+    .section-4 {
+        margin-bottom: 30px;
+    }
+    .section-5 {
+        height: auto;
+    }
+    .section-6 {
+        height: auto;
+        position: relative;
+        .section-title {
+            font-size: 2.1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .desc {
+            padding: 10px;
+            p {
+                margin-bottom: 1rem;
+                font-size: 16px;
+            }
+        }
+        .bg-img {
+            display: none;
+        }
+        .learn-more {
+            display: block;
+        }
+        .learn-more__content {
+            position: relative;
+            z-index: 100;
+            .content-title {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.3rem;
+            }
+            .more-btn {
+                margin-top: 20px;
+                width: 115px;
+                img {
+                    height: 25px;
+                }
+                span {
+                    font-size: 1rem;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    .section-7 {
+        .title {
+            margin-bottom: 10px;
+        }
+        .desc {
+            width: 100%;
+            display: block;
+            .left {
+                font-size: 34px;
+            }
+            .right {
+                padding: 10px 20px;
+                font-size: 20px;
+            }
+        }
+    }
+    .section-8 {
+        padding: 0 20px;
+        .main-setion.desc {
+            padding: 0;
+            display: block;
+            margin-bottom: 30px;
+            .members-mobile {
+                display: block;
+            }
+            .members-pc {
+                display: none;
+            }
+            .left {
+                font-size: 34px;
+            }
+            .right {
+                margin: 0;
+                .items-line {
+                    .item {
+                        width: 30vw;
+                        margin: 0 10px;
+                    }
+                    .expirence {
+                        text-indent: 0px;
+                        font-weight: normal;
+                    }
+                    .title {
+                        text-indent: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .section-9 {
+        padding: 0 20px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        .main-setion {
+            width: 100%;
+            padding: 0;
+        }
+        .desc {
+            padding: 15px 20px;
+            line-height: 26px;
+            p {
+                font-size: 16px;
+                span {
+                    font-size: 24px;
+                }
+            }
+        }
+        .others {
+            margin-top: 40px;
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            div {
+                font-size: 15px;
+                margin:  0;
+            }
+        }
     }
 }
 </style>
