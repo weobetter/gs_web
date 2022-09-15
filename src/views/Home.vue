@@ -159,8 +159,7 @@
                 >权益二：Gameshow数藏Top持有者，其形象会出现动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
             </p>
             <p class="mb-6 text-4xl">
-                >权益三：Gameshow数藏一次性购买10个将会收到Opensea Gameshow
-                Pass空投，并享受Gameshow后续项目的收益分红
+                >权益三：Gameshow 数藏持有者，有机会获得Gameshow NFT空投
             </p>
             <p class="mb-6 text-4xl">>权益四：线下活动受邀资格+线下周边领取</p>
             <p class="mb-6 text-4xl">>权益五：Gameshow元宇宙土地项目入场券</p>
