@@ -65,8 +65,8 @@
         "
     >
         <div class="desc flex justify-center">
-            <p class="text-7xl transform desc_1">让Web3用户</p>
-            <p class="text-9xl transform desc_2">“身临其境”</p>
+            <p class="text-6xl transform desc_1">让Web3用户</p>
+            <p class="text-6xl transform desc_2">“身临其境”</p>
         </div>
     </section>
 
@@ -83,19 +83,19 @@
         <div class="main-setion main-padding flex flex-col justify-center">
             <p class="text-7xl mb-20 section-title">故事梗概</p>
             <div class="desc flex flex-col justify-center">
-                <p class="mb-24">故事发生在2050年上海。</p>
-                <p class="mb-24">
+                <p class="mb-10">故事发生在2050年SH。</p>
+                <p class="mb-10">
                     随着科技发展，虚拟与现实的界限已经逐渐模糊。
                 </p>
-                <p class="mb-24">
+                <p class="mb-10">
                     名为Eyebags
                     Lab的顶尖开发团队，几个脑洞爆棚的设计师在一家宠物店的储藏间开发Web3
                     GAME Creator AI ——“小K”，可以通过智能合约创造游戏。
                 </p>
-                <p class="mb-24">
+                <p class="mb-10">
                     在制造卡牌游戏中，“小K”意外制造只能新型病毒，病毒将“小K”释放到了公共网络，找到了现实世界与虚拟世界的通道，执行原本游戏设计的逻辑，游戏元素被“小K”释放到现实中。
                 </p>
-                <p class="mb-24">
+                <p class="mb-10">
                     国际黑客组织也盯上了“小K”，企图利用它去实现自己的邪恶的目的。Eyebags
                     Lab组成了一支“小K”收集小队，企图回收“小K”核心代码碎片，夺得“小K”控制权（POS），与国际黑客组织开始了对决。
                 </p>
@@ -118,14 +118,24 @@
 
     <section
         id="section-5"
-        class="main-setion section-5 flex justify-center items-center"
+        class="main-setion section-5 flex flex-col justify-center items-center"
         :ref="
             (el) => {
                 refList[4] = el;
             }
         "
     >
-        <img :src="bg5" />
+        <div class="flex items-center justify-center text-7xl">
+            <span class="flex-shrink-0">怎么参与</span>
+            <img :src="`${OSS_BASE}/question_icon.png`" class="question_icon" />
+        </div>
+        <div class="mt-8 text-7xl">
+            <span class="text-theme-color">成为</span>
+            <span class="mx-1">Game Show</span>
+            <span class="text-theme-color">数字藏品持有者</span>
+            <img :src="`${OSS_BASE}/circle_icon.png`" class="circle_icon" />
+            <img :src="`${OSS_BASE}/yes_icon.png`" class="yes_icon" />
+        </div>
     </section>
 
     <section
@@ -521,19 +531,19 @@ const members2 = ref([
 const menus = ref([
     {
         name: '故事梗概',
-        targetIndex: 2,
+        targetIndex: 3,
     },
     {
         name: '参与方式',
-        targetIndex: 4,
+        targetIndex: 5,
     },
     {
         name: 'Roadmap',
-        targetIndex: 6,
+        targetIndex: 7,
     },
     {
         name: '团队介绍',
-        targetIndex: 7,
+        targetIndex: 8,
     },
 ]);
 const toTargetSection = (targetIndex) => {
@@ -602,15 +612,18 @@ const outsideURL = (link) => {
 .section-9 {
     color: white;
     padding: 0 5%;
-
-    background-size: 100%;
+    background-size: cover;
     background-position: bottom;
+    background-repeat: no-repeat;
+    .main-setion {
+        width: 1200px;
+    }
     .desc {
         width: 100%;
         border: 2px solid white;
         border-radius: 10px;
         font-size: 24px;
-        padding: 65px;
+        padding: 34px;
         line-height: 50px;
         letter-spacing: 3px;
         img {
@@ -702,7 +715,6 @@ const outsideURL = (link) => {
 }
 .section-6 {
     color: white;
-    height: 100vh;
     .desc {
         p {
             line-height: 1.5;
@@ -721,12 +733,25 @@ const outsideURL = (link) => {
 }
 .section-5 {
     color: white;
-    height: 70vh;
     .desc {
-        width: 80vw;
         .snd {
             color: var(--theme);
         }
+    }
+    .question_icon {
+        height: 120px;
+        margin-left: 20px;
+    }
+    .yes_icon {
+        height: 130px;
+        display: inline;
+        margin-left: 10px;
+    }
+    .circle_icon {
+        height: 120px;
+        width: auto;
+        display: inline;
+        margin-left: -225px;
     }
 }
 .section-1 {
@@ -759,23 +784,13 @@ const outsideURL = (link) => {
     }
 }
 .section-2 {
-    height: 60vh;
+    height: 30vh;
     .desc {
         color: white;
-        width: 80vw;
+        width: 90vw;
         margin: 0 auto;
         align-items: center;
         height: 100%;
-        .desc_1 {
-            transform: rotate(-10deg);
-            margin-top: 80px;
-        }
-
-        .desc_2 {
-            transform: rotate(20deg);
-            margin-left: -60px;
-            font-weight: bold;
-        }
     }
 }
 
@@ -785,7 +800,7 @@ const outsideURL = (link) => {
     .desc {
         border: 2px solid white;
         border-radius: 10px;
-        padding: 100px;
+        padding: 40px;
         font-size: 26px;
     }
 }
@@ -795,11 +810,7 @@ const outsideURL = (link) => {
         height: 100%;
     }
 }
-.section-5 {
-    img {
-        width: 100%;
-    }
-}
+
 .mobile-menu {
     display: none;
     font-size: 16px;
@@ -834,12 +845,12 @@ const outsideURL = (link) => {
         }
     }
     .section-2 {
-        height: 30vh;
+        height: 10vh;
         .desc_1 {
             font-size: 2rem;
         }
         .desc_2 {
-            font-size: 3rem;
+            font-size: 2rem;
         }
     }
     .section-3 {
@@ -866,6 +877,18 @@ const outsideURL = (link) => {
     }
     .section-5 {
         height: auto;
+        span {
+            font-size: 35px;
+        }
+        .question_icon {
+            height: 80px;
+        }
+        .circle_icon{
+            display: none;
+        }
+        .yes_icon {
+            height: 70px;
+        }
     }
     .section-6 {
         height: auto;

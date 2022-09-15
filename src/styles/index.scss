@@ -1,6 +1,6 @@
 :root {
     // 主题
-    --theme: rgb(234, 78, 184);
+    --theme: rgb(234, 84, 184);
 
     --theme2: #2f9688;
 
@@ -195,4 +195,8 @@ body::-webkit-scrollbar-button {
 .el-menu-item:hover {
     background-color: var(--theme2);
     color: var(--t1);
+}
+.text-theme-color {
+
+    color: var(--theme);
 }
