@@ -787,7 +787,6 @@ const outsideURL = (link) => {
     height: 30vh;
     .desc {
         color: white;
-        width: 90vw;
         margin: 0 auto;
         align-items: center;
         height: 100%;
