@@ -64,9 +64,15 @@
             }
         "
     >
-        <div class="desc flex justify-center">
-            <p class="text-6xl transform desc_1">让Web3用户</p>
-            <p class="text-6xl transform desc_2">“身临其境”</p>
+        <div class="desc flex justify-center flex-col items-center">
+            <p class="text-6xl transform desc_1">让Web3用户“身临其境”</p>
+            <video
+                id="eyebagsLab"
+                class="mt-16"
+                autoplay
+                controls
+                src="https://gs-1253494566.cos.ap-shanghai.myqcloud.com/web_static/Eyebags%20Lab%20pv%201080p.mp4#t=0.5"
+            ></video>
         </div>
     </section>
 
@@ -106,7 +112,7 @@
 
     <section
         id="section-4"
-        class="main-setion section-4 flex justify-center items-center"
+        class="main-setion section-4 flex justify-center items-center relative"
         :ref="
             (el) => {
                 refList[3] = el;
@@ -114,6 +120,13 @@
         "
     >
         <img :src="bg4" />
+        <video
+            id="ntfDemo"
+            class="ntfDemo"
+            autoplay
+            controls
+            src="https://gs-1253494566.cos.ap-shanghai.myqcloud.com/web_static/NFT%20demo.mp4#t=0.5"
+        ></video>
     </section>
 
     <section
@@ -147,22 +160,28 @@
             }
         "
     >
-        <p class="text-7xl mb-20 font-bold section-title">
-            持有者
-            <span class="" style="color: var(--theme)">权益</span>
-        </p>
-        <div class="desc flex flex-col justify-center">
-            <p class="mb-6 text-4xl">
-                >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
+        <div class="flex flex-col justify-center benifits">
+            <p class="text-7xl mb-20 font-bold section-title">
+                持有者
+                <span class="" style="color: var(--theme)">权益</span>
             </p>
-            <p class="mb-6 text-4xl">
-                >权益二：Gameshow数藏Top持有者，其形象会出现动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
-            </p>
-            <p class="mb-6 text-4xl">
-                >权益三：Gameshow 数藏持有者，有机会获得Gameshow NFT空投
-            </p>
-            <p class="mb-6 text-4xl">>权益四：线下活动受邀资格+线下周边领取</p>
-            <p class="mb-6 text-4xl">>权益五：Gameshow元宇宙土地项目入场券</p>
+            <div class="desc flex flex-col justify-center">
+                <p class="mb-6 text-4xl">
+                    >权益一：Gameshow数藏持有者获得部分动画的剧情制定权（Dao治理）
+                </p>
+                <p class="mb-6 text-4xl">
+                    >权益二：Gameshow数藏Top持有者，其形象会出现动画剧情中，同时且持有其他数字藏品的Holder可申请其数字藏品参演动画
+                </p>
+                <p class="mb-6 text-4xl">
+                    >权益三：Gameshow 数藏持有者，有机会获得Gameshow NFT空投
+                </p>
+                <p class="mb-6 text-4xl">
+                    >权益四：线下活动受邀资格+线下周边领取
+                </p>
+                <p class="mb-6 text-4xl">
+                    >权益五：Gameshow元宇宙土地项目入场券
+                </p>
+            </div>
         </div>
         <div class="learn-more flex justify-between items-stretch mt-28">
             <img :src="`${OSS_BASE}/gs_pass.svg`" class="mr-20 bg-img" />
@@ -206,16 +225,16 @@
         <div class="desc flex items-center justify-center">
             <div class="left">2022</div>
             <div class="right">
-                <p class="month">9月</p>
                 <p class="desc">
-                    项目启动，前期预热（数字藏品发型，团队PV公布）
+                    <span class="month">9月</span>
+                    项目启动，前期预热（数字藏品发行规划，团队PV公布）
                 </p>
-                <p class="month">10月</p>
-                <p class="desc">海外Game Show Pass卡空头开始，并确定出境任务</p>
-                <p class="month">11月</p>
-                <p class="desc">公布Game Show PV、系列片量产开始</p>
-                <p class="month">12月</p>
                 <p class="desc">
+                    <span class="month">11月</span>
+                    公布Game Show PV、系列片量产开始
+                </p>
+                <p class="desc">
+                    <span class="month">12月</span>
                     与蓝筹NFT项目方+影视界明星举办线下AMA，交流项目
                 </p>
             </div>
@@ -223,15 +242,23 @@
         <div class="desc flex items-center justify-center">
             <div class="left">2023</div>
             <div class="right">
-                <p class="month">2月</p>
-                <p class="desc">公布第一季部分剧情，引导用户参与投票</p>
-                <p class="month">3月</p>
-                <p class="desc">建议GameShow线下主题公园</p>
+                <p class="desc">
+                    <span class="month">2月</span>
+                    公布第一季部分剧情，引导用户参与投票
+                </p>
+                <p class="desc">
+                    <span class="month">3月</span>
+                    建议GameShow线下主题公园
+                </p>
                 <p class="desc">前6集准备完毕，公开第一集，月更/半月更</p>
-                <p class="month">5月</p>
-                <p class="desc">完成第一季动画制作</p>
-                <p class="month">8月</p>
-                <p class="desc">第一季12集播放结束，第二季连播</p>
+                <p class="desc">
+                    <span class="month">5月</span>
+                    完成第一季动画制作
+                </p>
+                <p class="desc">
+                    <span class="month">8月</span>
+                    第一季12集播放结束，第二季连播
+                </p>
             </div>
         </div>
     </section>
@@ -689,7 +716,7 @@ const outsideURL = (link) => {
         background-position: center;
     }
     .desc {
-        width: 80%;
+        width: 100%;
         margin: 20px 0;
         .left {
             font-size: 80px;
@@ -714,6 +741,9 @@ const outsideURL = (link) => {
 }
 .section-6 {
     color: white;
+    .benifits {
+        height: 60vh;
+    }
     .desc {
         p {
             line-height: 1.5;
@@ -732,6 +762,8 @@ const outsideURL = (link) => {
 }
 .section-5 {
     color: white;
+    height: 40vh;
+    margin-bottom: 0;
     .desc {
         .snd {
             color: var(--theme);
@@ -783,12 +815,13 @@ const outsideURL = (link) => {
     }
 }
 .section-2 {
-    height: 30vh;
     .desc {
         color: white;
         margin: 0 auto;
         align-items: center;
         height: 100%;
+    }
+    video {
     }
 }
 
@@ -806,6 +839,12 @@ const outsideURL = (link) => {
 .section-4 {
     img {
         height: 100%;
+    }
+    .ntfDemo {
+        position: absolute;
+        width: 44.9%;
+        right: 11.7%;
+        top: 29.5%;
     }
 }
 
@@ -843,7 +882,6 @@ const outsideURL = (link) => {
         }
     }
     .section-2 {
-        height: 10vh;
         .desc_1 {
             font-size: 2rem;
         }
@@ -872,6 +910,11 @@ const outsideURL = (link) => {
     }
     .section-4 {
         margin-bottom: 30px;
+
+        .ntfDemo {
+            right: 11.7%;
+            top: 29.5%;
+        }
     }
     .section-5 {
         height: auto;
@@ -881,7 +924,7 @@ const outsideURL = (link) => {
         .question_icon {
             height: 80px;
         }
-        .circle_icon{
+        .circle_icon {
             display: none;
         }
         .yes_icon {
