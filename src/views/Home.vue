@@ -838,13 +838,14 @@ const outsideURL = (link) => {
 
 .section-4 {
     img {
-        height: 100%;
+        width: 100%;
+        height: auto;
     }
     .ntfDemo {
         position: absolute;
-        width: 44.9%;
-        right: 11.7%;
-        top: 29.5%;
+        width: 44.85%;
+        right: 11.75%;
+        top: 29.63%;
     }
 }
 
@@ -913,7 +914,7 @@ const outsideURL = (link) => {
 
         .ntfDemo {
             right: 11.7%;
-            top: 29.5%;
+            top: 29.6%;
         }
     }
     .section-5 {
