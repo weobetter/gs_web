@@ -123,7 +123,6 @@
         <video
             id="ntfDemo"
             class="ntfDemo"
-            autoplay
             controls
             src="https://gs-1253494566.cos.ap-shanghai.myqcloud.com/web_static/NFT%20demo.mp4#t=0.5"
         ></video>
@@ -762,7 +761,7 @@ const outsideURL = (link) => {
 }
 .section-5 {
     color: white;
-    height: 40vh;
+    height: 100vh;
     margin-bottom: 0;
     .desc {
         .snd {
