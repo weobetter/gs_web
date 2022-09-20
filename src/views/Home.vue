@@ -394,6 +394,9 @@
             <div class="others flex justify-center items-center">
                 <div class="text-xl">2022 Eyebags Lab, All Rights Reserved</div>
             </div>
+            <div class="others flex justify-center items-center mt-4 mb-20">
+                <div class="text-xl">沪ICP备17019960号-2</div>
+            </div>
         </div>
     </section>
 </template>
